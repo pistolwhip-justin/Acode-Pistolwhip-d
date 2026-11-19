@@ -14,7 +14,7 @@ Acode is an open-source code editor and web IDE for Android. This edition uses t
 
 - 🔓 **Pro features enabled:** the upstream paid package variant sets Acode's Pro feature flag.
 - 🚫 **No AdMob integration:** the paid build configuration removes the AdMob and legacy consent plugins.
-- 📦 **Independent Android identity:** installs as `com.pistolwhip.acode`, so it can coexist with the official Acode package.
+- 📦 **Independent Android identity:** installs as `com.pistolwhip.acode`, so it can coexist with the official Acode package. The internal Android resource namespace remains `com.foxdebug.acode` for compatibility with upstream Java/plugin sources.
 - 🏗️ **Reproducible cloud builds:** GitHub Actions builds the APK from the committed source.
 - 🚀 **Versioned releases:** installable APKs are published as GitHub Release assets, not committed to the source tree.
 
