@@ -10,7 +10,6 @@ on:
       - "package.json"
       - "utils/config.js"
       - "utils/setup.js"
-      - "build-extras.gradle"
   workflow_dispatch:
 
 permissions:
@@ -86,7 +85,8 @@ jobs:
         run: |
           grep -F 'const ID_PAID = "com.pistolwhip.acode";' utils/config.js
           grep -F 'const ID_PAID = "com.pistolwhip.acode";' utils/setup.js
-          grep -F "namespace 'com.foxdebug.acode'" build-extras.gradle
+          grep -F 'import com.pistolwhip.acode.R;' src/plugins/browser/android/com/foxdebug/browser/Menu.java
+          grep -F 'import com.pistolwhip.acode.R;' src/plugins/terminal/src/android/AlpineDocumentProvider.java
           grep -F 'config.HAS_PRO = !isFreePackage;' src/main.js
           grep -F 'version="1.13.6"' config.xml
           test -d codemirror-lsp-client
