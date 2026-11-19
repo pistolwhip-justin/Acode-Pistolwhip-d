@@ -1,6 +1,4 @@
 android {
-    // Keep the resource namespace stable for upstream Java sources that import com.foxdebug.acode.R.
-    namespace 'com.foxdebug.acode'
     packagingOptions {
         pickFirst 'META-INF/versions/9/OSGI-INF/MANIFEST.MF'
     }
