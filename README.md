@@ -119,6 +119,12 @@ The release guard is intentionally strict: an existing complete release is left 
 
 The helper workflow `.github/workflows/export-release-apk.yml` retrieves the already-published APK, verifies its SHA-256, and exports a short-lived Actions artifact for in-chat file delivery. The GitHub Release remains the canonical distribution location.
 
+## 🧭 Next Development Phase
+
+The next phase will standardize the derivative's branding to **Acode Pistolwhip'd**. Update all derivative/user-facing references currently using “Acode Pistol Whip” or “Acode — Pistol Whip Edition,” including the app display name, README and other documentation, About/metadata surfaces, GitHub Actions workflow/release presentation where appropriate, and future release notes.
+
+Preserve upstream Acode attribution, copyright and MIT license notices. Do not change technical identifiers (including the Android application ID `com.pistolwhip.acode`) or the GitHub repository slug as part of this branding-only change unless separately approved. The already-published `v1.13.6` release remains immutable; deliver the rename in a new versioned release after implementation and testing.
+
 ## 🧪 Testing & Known Limitations
 
 - ✅ Automated tests passed for the 1.13.6 source.
@@ -167,4 +173,4 @@ This is an independently built, unofficial derivative supplied for testing. It i
 
 ---
 
-Last updated: 2026-11-18
+Last updated: 2026-11-19
