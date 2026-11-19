@@ -17,7 +17,7 @@ permissions:
 
 concurrency:
   group: acode-pistolwhip-release-1.13.6
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   release:
