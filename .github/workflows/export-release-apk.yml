@@ -1,0 +1,45 @@
+name: Export Release APK Artifact
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/export-release-apk.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    name: Verify and export published APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download published release APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p dist
+          gh release download "v1.13.6" \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern "Acode-Pistolwhip-1.13.6.apk" \
+            --dir dist
+          test -s dist/Acode-Pistolwhip-1.13.6.apk
+
+      - name: Verify release asset checksum
+        run: |
+          EXPECTED="77fefa12ec8425aef477057c3d1d6a4fe50251ed81df92eaa8c04683f0fef1fb"
+          ACTUAL="$(sha256sum dist/Acode-Pistolwhip-1.13.6.apk | awk '{print $1}')"
+          test "$ACTUAL" = "$EXPECTED"
+          echo "Verified APK SHA-256: $ACTUAL" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload APK as downloadable artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Acode-Pistolwhip-1.13.6-APK
+          path: dist/Acode-Pistolwhip-1.13.6.apk
+          if-no-files-found: error
+          retention-days: 7
