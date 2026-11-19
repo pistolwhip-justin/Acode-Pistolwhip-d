@@ -121,9 +121,13 @@ The helper workflow `.github/workflows/export-release-apk.yml` retrieves the alr
 
 ## 🧭 Next Development Phase
 
-The next phase will standardize the derivative's branding to **Acode Pistolwhip'd**. Update all derivative/user-facing references currently using “Acode Pistol Whip” or “Acode — Pistol Whip Edition,” including the app display name, README and other documentation, About/metadata surfaces, GitHub Actions workflow/release presentation where appropriate, and future release notes.
+The next phase will standardize the derivative's branding to **Acode Pistolwhip'd** and address the Android-device testing feedback below. Update all derivative/user-facing references currently using “Acode Pistol Whip” or “Acode — Pistol Whip Edition,” including the Android application label/display name, README and other documentation, About/metadata surfaces, GitHub Actions workflow/release presentation where appropriate, and future release notes.
 
-Preserve upstream Acode attribution, copyright and MIT license notices. Do not change technical identifiers (including the Android application ID `com.pistolwhip.acode`) or the GitHub repository slug as part of this branding-only change unless separately approved. The already-published `v1.13.6` release remains immutable; deliver the rename in a new versioned release after implementation and testing.
+**Android system-visible app identity (acceptance requirement):** The installed app must be identified as **Acode Pistolwhip'd**—not simply “Acode”—in the Android package installer/install confirmation, Settings > Apps, home screen, and app drawer. This is essential so the derivative is clearly distinguishable when the upstream Acode app is also installed. A README or in-app title change alone does not satisfy this requirement.
+
+**First-launch and update behavior (acceptance requirement):** The first-launch dialog asking the user to confirm automatic updates must be investigated. Trace the updater's actual source, repository/release feed, package/asset selection, and signing/update compatibility. Any automatic update check or installation must target this derivative's own repository/releases and package—not the original Acode application. Do not assume the custom package ID redirects the updater. If the inherited updater cannot be isolated safely, disable or replace it with a derivative-owned update mechanism before release. Verify the prompt and update target on-device; never permit an upstream update to be offered or installed as an update to this fork.
+
+Preserve upstream Acode attribution, copyright and MIT license notices. Do not change technical identifiers (including the Android application ID `com.pistolwhip.acode`) or the GitHub repository slug as part of this branding/update-isolation phase unless separately approved. The already-published `v1.13.6` release remains immutable; deliver the changes in a new versioned release after implementation and testing. This phase is recorded as planned only and must not be started until the user provides further feedback/authorization.
 
 ## 🧪 Testing & Known Limitations
 
